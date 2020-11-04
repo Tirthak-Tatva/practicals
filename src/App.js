@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   nameChangedHandler = (event, id) => {
-    debugger;
     const personIndex = this.state.persons.findIndex(p=> {
       return p.id === id;
     });
@@ -36,7 +35,6 @@ class App extends Component {
   }
   
   togglePersons = () => {
-    debugger;
     const show = this.state.showPersons;
     this.setState({ showPersons: !show });
     console.log(this.state.showPersons);
