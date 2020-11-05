@@ -1,14 +1,23 @@
-// import { Component } from 'react';
+import { Component } from 'react';
 import classes from './Person.module.css';
+// import { ErrorBoundary } from '../../ErrorBoundary';
 
 ////functional component
 const person = (props) => {
+    // const random = Math.random();
+    // if(random < 0.5){
+    //     return <ErrorBoundary/>;
+    //     //throw new Error('There is an error');
+    // }
+    // else{
     return (
         <div className={classes.person}>
             <p onClick={props.click}>My name is {props.name} and I am {props.age} years old.</p>
             <input type="text" onChange={props.changed} />
         </div>
     );
+    // }
+
 }
 
 ////class based component
@@ -23,5 +32,13 @@ const person = (props) => {
 //         );
 //     }
 // }
+
+export class Animal extends Component {
+    render() {
+        return (
+            <p>Animal {this.props.name}</p>
+        );
+    }
+}
 
 export default person;
