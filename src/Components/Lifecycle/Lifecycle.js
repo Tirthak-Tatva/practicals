@@ -16,17 +16,19 @@ class Lifecycle extends Component {
         return state;
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        console.log('Lifecycle - shouldComponentUpdate');
-        if(nextProps.animals !== this.state.animals){
-            return true;
-        }
-        return false;
-    }
+    //pure components already includes checking props and state, we do not need to check manually
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log('Lifecycle - shouldComponentUpdate');
+    //     if (nextState.animals !== this.state.animals 
+    //         || nextProps.title !== this.props.title) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
         console.log('Lifecycle - getSnanpshotBeforeUpdate');
-        return {message: 'snapshot..'};
+        return { message: 'snapshot..' };
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -42,7 +44,7 @@ class Lifecycle extends Component {
         console.log('Lifecycle - componentDidMount');
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         console.log('Lifecycle - componentWillUnmount')
     }
 
@@ -50,7 +52,7 @@ class Lifecycle extends Component {
         const text = event.target.value;
         let animals = [...this.state.animals];
         animals[0].name = text;
-        this.setState({animals: animals});
+        this.setState({ animals: animals });
     }
 
     render() {
